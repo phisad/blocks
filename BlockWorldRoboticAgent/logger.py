@@ -1,7 +1,7 @@
 class LogLevel:
     """ Log level: info and error are always printed while debug
     is only for printing detailed messages. """
-    INFO, DEBUG = range(2)
+    INFO, DEBUG = list(range(2))
 
 
 class Log:

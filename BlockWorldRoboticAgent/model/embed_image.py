@@ -80,7 +80,7 @@ class EmbedImage:
         # Create 4 images for padding in the beginning
         padding_image = np.zeros((image_dim, image_dim, 3), dtype=np.float32)
         self.padding_images = [padding_image, padding_image, padding_image, padding_image]
-        print "Created Image Embedder"
+        print("Created Image Embedder")
 
     def get_padding_images(self):
         return self.padding_images

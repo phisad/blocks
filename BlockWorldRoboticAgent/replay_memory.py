@@ -46,6 +46,6 @@ class ReplayMemory:
 
     def set_target_retroactively(self, target):
         if self.target is not None:
-            print "Setting a target that is not none. Bug. Exiting"
+            print("Setting a target that is not none. Bug. Exiting")
             exit(0)
         self.target = target

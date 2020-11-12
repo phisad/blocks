@@ -1,5 +1,5 @@
-import embed_image
-import embed_previous_action as epa
+from . import embed_image
+from . import embed_previous_action as epa
 import numpy as np
 import tensorflow as tf
 import replay_memory as rm

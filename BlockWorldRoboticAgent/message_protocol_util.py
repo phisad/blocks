@@ -31,7 +31,7 @@ class MessageProtocolUtil:
             direction_id_str = "west"
         else:
             direction_id_str = None
-            print "Error. Exiting"
+            print("Error. Exiting")
             exit(0)
 
         return str(block_id) + " " + direction_id_str
@@ -52,7 +52,7 @@ class MessageProtocolUtil:
             direction_id_str = "west"
         else:
             direction_id_str = None
-            print "Error. Exiting"
+            print("Error. Exiting")
             exit(0)
 
         return str(block_id) + " " + direction_id_str

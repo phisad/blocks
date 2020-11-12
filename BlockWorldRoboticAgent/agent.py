@@ -20,7 +20,7 @@ import generic_policy as gp
 # REINFORCE: Performs policy gradient using reinforce algorithm with entropy regularization but no baseline.
 # PGADVANTAGE: Advantage Actor Critic (A2C) algorithm using V function as a baseline in REINFORCE (not asynchronous).
 # CONTEXTUALBANDIT: Contextual Bandit algorithm that maximizes the immediate reward.
-SUPERVISEDMLE, SIMPLEQLEARNING, REINFORCE, PGADVANTAGE, CONTEXTUALBANDIT = range(5)
+SUPERVISEDMLE, SIMPLEQLEARNING, REINFORCE, PGADVANTAGE, CONTEXTUALBANDIT = list(range(5))
 
 
 class Agent:
@@ -35,8 +35,8 @@ class Agent:
 
         # Connect to simulator
         if len(sys.argv) < 2:
-            logger.Log.info("IP not given. Using localhost i.e. 0.0.0.0")
-            self.unity_ip = "0.0.0.0"
+            logger.Log.info("IP not given. Using localhost i.e. 127.0.0.1")
+            self.unity_ip = "127.0.0.1"
         else:
             self.unity_ip = sys.argv[1]
 
@@ -193,15 +193,15 @@ class Agent:
                 logger.Log.debug(action_values)
                 prob_action = action_values[inferred_action]
                 logger.Log.info("Action probability " + str(prob_action))
-                print "Action probability " + str(prob_action)
+                print(("Action probability " + str(prob_action)))
 
-                print "Sending Message: " + action_str
+                print(("Sending Message: " + action_str))
                 logger.Log.info(action_str + "\n")
                 self.connection.send_message(action_str)
 
                 # receive confirmation on the completion of action
                 (status_code, reward, current_env, is_reset) = self.receive_response_and_image()
-                print "Received reward " + str(reward)
+                print(("Received reward " + str(reward)))
                 previous_state.append(current_env)
 
                 # Update and print metric
@@ -213,7 +213,7 @@ class Agent:
 
                 # Reset to a new task
                 if self.message_protocol_kit.is_reset_message(is_reset):
-                    print "Resetting the episode"
+                    print("Resetting the episode")
                     self.connection.send_message("Ok-Reset")
 
                     sum_reward += sample_expected_reward
@@ -265,13 +265,13 @@ class Agent:
                 # sample action from the likelihood distribution
                 action_id = trajectory[steps]
                 action_str = self.message_protocol_kit.encode_action(action_id)
-                print "Sending Message: " + action_str
+                print(("Sending Message: " + action_str))
                 logger.Log.info(action_str + "\n")
                 self.connection.send_message(action_str)
 
                 # receive confirmation on the completion of action
                 (_, reward, _, is_reset) = self.receive_response_and_image()
-                print "Received reward " + str(reward)
+                print(("Received reward " + str(reward)))
 
                 # Update and print metric
                 sample_expected_reward += running_gamma * reward
@@ -280,7 +280,7 @@ class Agent:
 
                 # Reset to a new task
                 if self.message_protocol_kit.is_reset_message(is_reset):
-                    print "Resetting the episode"
+                    print("Resetting the episode")
                     self.connection.send_message("Ok-Reset")
 
                     logger.Log.info("Example: " + str(i) + " Instruction: " + instruction + " Steps: " + str(steps))

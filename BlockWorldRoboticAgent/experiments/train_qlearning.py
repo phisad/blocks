@@ -1,4 +1,4 @@
-import constants
+from . import constants
 from agent import *
 from config import Config
 

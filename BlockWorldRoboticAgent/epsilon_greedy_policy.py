@@ -31,7 +31,7 @@ class EpsilonGreedyPolicy:
 
     def decay_epsilon(self):
         if self.below_min_epsilon:
-            print "Reached min. epsilon"
+            print("Reached min. epsilon")
             return self.min_epsilon
 
         self.step += 1
@@ -40,7 +40,7 @@ class EpsilonGreedyPolicy:
             self.current_epsilon = self.min_epsilon
             self.below_min_epsilon = True
 
-        print "Current epsilon " + str(self.current_epsilon) + " step " + str(self.step)
+        print("Current epsilon " + str(self.current_epsilon) + " step " + str(self.step))
 
     def get_action(self, q_val):
 

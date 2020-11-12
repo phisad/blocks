@@ -89,7 +89,7 @@ class EmbedTokenSeq:
             maski = [[1.0] * i + [0.0] * (self.num_steps - i)]
             self.mask_ls.append(maski)
 
-        print "Created Token Seq Embedder"
+        print("Created Token Seq Embedder")
 
     def get_input(self):
         return self.input_data
@@ -177,7 +177,7 @@ class EmbedTokenSeq:
         """
 
         tokens = open("../BlockWorldSimulator/Assets/vocab_both").readlines()
-        print "Read " + str(len(tokens)) + " many tokens from ../BlockWorldSimulator/Assets/ "
+        print("Read " + str(len(tokens)) + " many tokens from ../BlockWorldSimulator/Assets/ ")
         size = len(vocabulary)
 
         for token in tokens:
@@ -190,7 +190,7 @@ class EmbedTokenSeq:
                 vocabulary.append(token)
                 word_embeddings.append(word_vector)
 
-        print "Vocabulary expanded from size " + str(size) + " to " + str(len(vocabulary))
+        print("Vocabulary expanded from size " + str(size) + " to " + str(len(vocabulary)))
 
         return vocabulary, word_dim, word_embeddings
 

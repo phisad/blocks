@@ -3,7 +3,7 @@ import logger
 
 class Config:
 
-    TRAIN, DEV, TEST = range(3)
+    TRAIN, DEV, TEST = list(range(3))
 
     def __init__(self, dataset_size, shuffle_before_select, dataset_file, simplified, horizon,
                  reward_function_type, use_localhost, stop_action_reward, screen_size):

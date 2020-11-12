@@ -1,8 +1,8 @@
-import embed_token_seq
-import image_preprocessing
-import embed_image
-import mix_and_gen_prob
-import embed_previous_action as epa
+from . import embed_token_seq
+from . import image_preprocessing
+from . import embed_image
+from . import mix_and_gen_prob
+from . import embed_previous_action as epa
 import tensorflow as tf
 import numpy as np
 

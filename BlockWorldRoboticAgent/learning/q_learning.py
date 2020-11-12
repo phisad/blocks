@@ -3,7 +3,7 @@ import tensorflow as tf
 import time
 import collections
 import replay_memory as rm
-from abstract_learning import AbstractLearning
+from .abstract_learning import AbstractLearning
 import prioritized_sweeping
 import epsilon_greedy_policy as egp
 

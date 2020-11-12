@@ -3,7 +3,7 @@ import time
 import collections
 import tensorflow as tf
 import numpy as np
-from abstract_learning import AbstractLearning
+from .abstract_learning import AbstractLearning
 import replay_memory as rm
 import generic_policy as gp
 from learning.ml_estimation import MaximumLikelihoodEstimation

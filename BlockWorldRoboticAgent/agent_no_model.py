@@ -5,7 +5,7 @@ import reliable_connect as rc
 import generic_policy as gp
 import random
 
-ORACLE, RANDOM_WALK, STOP = range(3)
+ORACLE, RANDOM_WALK, STOP = list(range(3))
 
 
 class AgentModelLess:
@@ -22,8 +22,8 @@ class AgentModelLess:
 
         # Connect to simulator
         if len(sys.argv) < 2:
-            logger.Log.info("IP not given. Using localhost i.e. 0.0.0.0")
-            self.unity_ip = "0.0.0.0"
+            logger.Log.info("IP not given. Using 127.0.0.1")
+            self.unity_ip = "127.0.0.1"
         else:
             self.unity_ip = sys.argv[1]
 
@@ -106,13 +106,13 @@ class AgentModelLess:
                     raise AssertionError("Unknown agent type. Found " + str(self.agent_type))
 
                 action_str = self.message_protocol_kit.encode_action(action_id)
-                print "Sending Message: " + action_str
+                print("Sending Message: " + action_str)
                 logger.Log.info(action_str + "\n")
                 self.connection.send_message(action_str)
 
                 # receive confirmation on the completion of action
                 (_, reward, _, is_reset) = self.receive_response_and_image()
-                print "Received reward " + str(reward)
+                print("Received reward " + str(reward))
 
                 # Update and print metric
                 sample_expected_reward += running_gamma * reward
@@ -121,7 +121,7 @@ class AgentModelLess:
 
                 # Reset to a new task
                 if self.message_protocol_kit.is_reset_message(is_reset):
-                    print "Resetting the episode"
+                    print("Resetting the episode")
                     self.connection.send_message("Ok-Reset")
 
                     logger.Log.info("Example: " + str(i) + " Instruction: " + instruction + " Steps: " + str(steps))

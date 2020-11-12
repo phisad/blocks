@@ -1,4 +1,4 @@
-import constants
+from . import constants
 from agent_no_model import *
 from config import Config
 
