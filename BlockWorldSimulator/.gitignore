@@ -1,5 +1,4 @@
 *.log
 Library/metadata
 Library/ShaderCache
-blocksim_Data
-linux_build_Data
+
